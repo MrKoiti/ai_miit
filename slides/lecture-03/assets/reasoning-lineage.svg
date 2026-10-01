@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111111"/>
+    </marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1d4ed8"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+
+  <text x="150" y="30" font-size="15" font-weight="bold" fill="#333333" text-anchor="middle">ОСНОВА · УЖЕ ПРОШЛИ</text>
+  <text x="720" y="30" font-size="15" font-weight="bold" fill="#333333" text-anchor="middle">ЧТО МОЖНО ДОБАВИТЬ В ЦИКЛ АГЕНТА ИЗ ПРАКТИКИ 2</text>
+  <line x1="400" y1="40" x2="400" y2="420" stroke="#999999" stroke-width="2" stroke-dasharray="7 6"/>
+
+  <!-- CoT -->
+  <rect x="30" y="60" width="240" height="96" fill="#f2f2f2" stroke="#111111" stroke-width="1.5"/>
+  <text x="46" y="88" font-size="16" font-weight="bold" fill="#111111">Chain-of-thought · 2022</text>
+  <text x="46" y="112" font-size="13" fill="#333333">шаги до ответа —</text>
+  <text x="46" y="130" font-size="13" fill="#333333">текст, который модель пишет себе</text>
+
+  <!-- ReAct -->
+  <rect x="30" y="280" width="240" height="118" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.5"/>
+  <text x="46" y="308" font-size="16" font-weight="bold" fill="#1d4ed8">ReAct · 2022</text>
+  <text x="46" y="332" font-size="13" fill="#333333">мысль → действие → наблюдение</text>
+  <text x="46" y="350" font-size="13" fill="#333333">→ снова мысль</text>
+  <text x="46" y="378" font-size="12" font-style="italic" fill="#555555">= ваш run_agent из практики 2</text>
+
+  <line x1="150" y1="160" x2="150" y2="275" stroke="#111111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="162" y="222" font-size="12" fill="#555555">после мысли — не ответ, а вызов</text>
+
+  <!-- ветки -->
+  <g font-size="13">
+    <!-- ToT -->
+    <rect x="440" y="52" width="530" height="72" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+    <text x="456" y="76" font-size="14.5" font-weight="bold" fill="#111111">Ветвление · Tree of Thoughts, 2023</text>
+    <text x="456" y="98" fill="#333333">несколько мыслей на шаг, оценка каждой, выбор, откат назад</text>
+    <text x="456" y="115" font-size="12" font-style="italic" fill="#555555">в цикле: не одна просьба вызвать, а сравнение вариантов до вызова</text>
+
+    <!-- Plan-and-Solve -->
+    <rect x="440" y="140" width="530" height="72" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+    <text x="456" y="164" font-size="14.5" font-weight="bold" fill="#111111">План до действий · Plan-and-Solve, 2023</text>
+    <text x="456" y="186" fill="#333333">сначала разбить задачу на подзадачи, потом выполнять по плану</text>
+    <text x="456" y="203" font-size="12" font-style="italic" fill="#555555">в цикле: строка плана в первой мысли — сколько вызовов и каких</text>
+
+    <!-- Reasoning models -->
+    <rect x="440" y="228" width="530" height="72" fill="#f2f2f2" stroke="#111111" stroke-width="1.5"/>
+    <text x="456" y="252" font-size="14.5" font-weight="bold" fill="#111111">Внутрь модели · reasoning-модели, 2024–</text>
+    <text x="456" y="274" fill="#333333">рассуждение встроено; не показывается, но оплачивается и занимает окно</text>
+    <text x="456" y="291" font-size="12" font-style="italic" fill="#555555">в цикле: ничего не пишете, платите токенами за каждую итерацию</text>
+
+    <!-- Reflexion -->
+    <rect x="440" y="316" width="530" height="82" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.5"/>
+    <text x="456" y="340" font-size="14.5" font-weight="bold" fill="#1d4ed8">Обратная связь между попытками · Reflexion, 2023</text>
+    <text x="456" y="362" fill="#333333">после неудачи вывод записывается в память и читается в следующей попытке</text>
+    <text x="456" y="381" font-size="12" font-style="italic" fill="#555555">в цикле: текст ошибки из TODO 2 — та самая обратная связь; память — блок 3</text>
+  </g>
+
+  <!-- стрелки от CoT -->
+  <path d="M 275 90 L 435 88" fill="none" stroke="#111111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 275 108 L 435 176" fill="none" stroke="#111111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 275 126 L 435 264" fill="none" stroke="#111111" stroke-width="2" marker-end="url(#a)"/>
+  <!-- стрелка от ReAct -->
+  <path d="M 275 339 L 435 357" fill="none" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#ab)"/>
+
+  <text x="500" y="440" font-size="13" fill="#111111" text-anchor="middle">Синие рамки — то, что в вашем агенте из практики 2 уже есть: цикл и текст ошибки инструмента.</text>
+  <text x="500" y="460" font-size="12" font-style="italic" fill="#555555" text-anchor="middle">Wei et al. 2022 · Yao et al. 2022 · Yao et al. 2023 · Wang et al. 2023 · Shinn et al. 2023 · Claude Docs, OpenAI Docs</text>
+</svg>
